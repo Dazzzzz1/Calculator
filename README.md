@@ -25,4 +25,4 @@ A simple calculator web application with light/dark mode toggle.
 1. Clone the repository
 2. Navigate to the directory: cd calculator
 3. Install dependencies: npm install
-4. Build the project: npm run build
+4. Build the project: npm run dev
