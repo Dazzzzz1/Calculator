@@ -5,12 +5,14 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default {
-  mode: 'development',
+  mode: 'production',
   entry: './src/script.js',
+  devtool: false,
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
     clean: true,
+    publicPath: '/Calculator/',
   },
   plugins: [
     new HtmlWebpackPlugin({
