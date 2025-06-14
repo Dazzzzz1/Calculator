@@ -11,14 +11,19 @@ export default {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
-    clean: true,
-    publicPath: '/Calculator/',
+    publicPath: '/',
+    library: 'Calculator',
+    libraryTarget: 'window',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'dist/index.html'),
+      template: './src/index.html',
       filename: 'index.html',
-      inject: false,
+      inject: true,
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+      },
     }),
   ],
   devServer: {
@@ -34,7 +39,15 @@ export default {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: false,
+            },
+          },
+        ],
       },
     ],
   },
