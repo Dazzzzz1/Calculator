@@ -11,12 +11,14 @@ export default {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
+    clean: true,
     publicPath: '/Calculator/',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './dist/index.html',
-      inject: 'body',
+      template: path.resolve(__dirname, 'dist/index.html'),
+      filename: 'index.html',
+      inject: false,
     }),
   ],
   devServer: {
